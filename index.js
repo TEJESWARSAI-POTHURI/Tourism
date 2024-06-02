@@ -1,28 +1,18 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(cors());
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const bodyParser = require('body-parser');
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(cors());
-const emailRouter=require('./Mailrouter');
-
-// Use body-parser middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-
-app.use('/api/email_otp', emailRouter);
-
-
-
-app.listen(5000, () => {
-  console.log("started");
-});
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
